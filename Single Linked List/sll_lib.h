@@ -17,5 +17,7 @@ node* reverse_list(node*);
 int list_length(node*);
 double* list_to_array(node*);
 void free_list(node*);
+void delete_value(node* ,double);
+void list_pop(node*);
 
 #endif //SLL_LIB_H

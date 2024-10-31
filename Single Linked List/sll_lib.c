@@ -135,6 +135,27 @@ void free_list(node* head) {
     }
 }
 
+//usuwa węzeł z konkretną wartoscią z listy
+void delete_value(node* head,double value){
+    if(head->next_node->value == value){
+        head->next_node = head->next_node->next_node;
+    }else if(head->next_node->next_node!=NULL){
+        delete_value(head->next_node,value);
+    }else {
+        fprintf(stderr,"ERROR: Nie udało się usunąć węzła z wartością: %lf\n",value);
+        return;
+    }
+}
+
+//usuwa ostatni węzeł z listy
+void list_pop(node* head) {
+    if(head->next_node->next_node==NULL) {
+        head->next_node = NULL;
+    }else {
+        list_pop(head->next_node);
+    }
+}
+
 // wyświetla całą listę
 void print_list(node* head) {
     printf("%d ",list_length(head));
