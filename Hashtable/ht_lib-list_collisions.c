@@ -135,4 +135,3 @@ void ht_free(HT* ht) {
     free(ht);        // Zwolnienie struktury tablicy hash
 }
 
-
