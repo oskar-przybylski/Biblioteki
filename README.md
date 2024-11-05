@@ -1,10 +1,10 @@
 # Linked List Library
 
-##Opis
+## Opis
 
 Biblioteka linked list implementuje podstawowe operacje na liście jednokierunkowej w języku C. Pozwala na dynamiczne dodawanie, usuwanie, przeszukiwanie oraz konwersję listy do tablicy i odwrotnie.
 
-##Funkcje
+## Funkcje
 
 node* make_head(double value)
 
@@ -110,13 +110,13 @@ Usuwa ostatni węzeł z listy.
  
 -----------------------------------------------------------------------------------------------------------------------------------
 
-#Hash Table Library
+# Hash Table Library
 
-##Opis
+## Opis
 
 Biblioteka hashtable implementuje strukturę danych typu tabela mieszająca (hash table) w języku C. Pozwala ona na przechowywanie par klucz-wartość, szybkie wyszukiwanie oraz podstawowe operacje manipulujące danymi.
 
-##Funkcje
+## Funkcje
 
 unsigned int hash(int key, int table_size)
 
@@ -175,13 +175,13 @@ Zwalnia pamięć przydzieloną dla tabeli haszującej.
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-#Binary Tree Library
+# Binary Tree Library
 
-##Opis
+## Opis
 
 Biblioteka binary tree implementuje strukturę danych drzewa binarnego w języku C, oferując podstawowe operacje takie jak wstawianie, przeszukiwanie oraz wyświetlanie drzewa.
 
-##Funkcje
+## Funkcje
 
 node* bt_make_node(double value)
 
