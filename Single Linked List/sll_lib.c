@@ -123,7 +123,7 @@ double* list_to_array(node* head){
 
 //zwraca poczatek odwroconej listy
 node* reverse_list(node* head) {
-    node* node_before = NULL;
+    node* node_before  = NULL;
     node* current_node = head;
     node* node_after = NULL;
 
