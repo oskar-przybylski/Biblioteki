@@ -6,7 +6,7 @@ Biblioteka linked list implementuje podstawowe operacje na liście jednokierunko
 
 ## Funkcje
 
-node* make_head(double value)
+### node* make_head(double value)
 
 Tworzy pierwszy węzeł (głowę) listy z początkową wartością.
 
@@ -14,14 +14,14 @@ Tworzy pierwszy węzeł (głowę) listy z początkową wartością.
 	•	value - Wartość double do zapisania w pierwszym węźle.
 	•	Zwraca: wskaźnik do utworzonego węzła (głowy listy).
 
-void print_list(node* head)
+### void print_list(node* head)
 
 Wypisuje zawartość listy od głowy (head) do końca.
 
 	•	Parametry:
 	•	head - Wskaźnik do głowy listy.
 
-node* append_node(node* head, double value)
+### node* append_node(node* head, double value)
 
 Dodaje nowy węzeł o wartości value na końcu listy.
 
@@ -30,7 +30,7 @@ Dodaje nowy węzeł o wartości value na końcu listy.
 	•	value - Wartość double do dodania do listy.
 	•	Zwraca: wskaźnik do głowy listy.
 
-node* insert_node(node* head, double value, node* pos)
+### node* insert_node(node* head, double value, node* pos)
 
 Wstawia nowy węzeł o wartości value przed wskazanym węzłem pos.
 
@@ -40,7 +40,7 @@ Wstawia nowy węzeł o wartości value przed wskazanym węzłem pos.
 	•	pos - Wskaźnik do węzła, przed którym wstawiony zostanie nowy węzeł.
 	•	Zwraca: wskaźnik do głowy listy.
 
-node* array_to_list(double* arr, int size)
+### node* array_to_list(double* arr, int size)
 
 Konwertuje tablicę arr do listy jednokierunkowej.
 
@@ -49,7 +49,7 @@ Konwertuje tablicę arr do listy jednokierunkowej.
 	•	size - Rozmiar tablicy.
 	•	Zwraca: wskaźnik do głowy listy utworzonej na podstawie tablicy.
 
-node* append_array_to_list(node* head, double* arr, int size)
+### node* append_array_to_list(node* head, double* arr, int size)
 
 Dodaje elementy z tablicy arr na końcu istniejącej listy.
 
@@ -59,7 +59,7 @@ Dodaje elementy z tablicy arr na końcu istniejącej listy.
 	•	size - Rozmiar tablicy arr.
 	•	Zwraca: wskaźnik do głowy listy.
 
-node* append_after_value(node* head, double target, double value)
+### node* append_after_value(node* head, double target, double value)
 
 Dodaje nowy węzeł o wartości value po pierwszym węźle o wartości target.
 
@@ -69,7 +69,7 @@ Dodaje nowy węzeł o wartości value po pierwszym węźle o wartości target.
 	•	value - Wartość double nowego węzła.
 	•	Zwraca: wskaźnik do głowy listy.
 
-node* reverse_list(node* head)
+### node* reverse_list(node* head)
 
 Odwraca kolejność węzłów na liście.
 
@@ -77,7 +77,7 @@ Odwraca kolejność węzłów na liście.
 	•	head - Wskaźnik do głowy listy.
 	•	Zwraca: wskaźnik do nowej głowy odwróconej listy.
 
-double* list_to_array(node* head)
+### double* list_to_array(node* head)
 
 Konwertuje listę na tablicę.
 
@@ -85,14 +85,14 @@ Konwertuje listę na tablicę.
 	•	head - Wskaźnik do głowy listy.
 	•	Zwraca: wskaźnik do nowej tablicy double utworzonej z listy.
 
-void free_list(node* head)
+### void free_list(node* head)
 
 Zwalnia pamięć przydzieloną dla listy.
 
 	•	Parametry:
 	•	head - Wskaźnik do głowy listy.
 
-void delete_value(node* head, double value)
+### void delete_value(node* head, double value)
 
 Usuwa pierwszy węzeł o wartości value z listy.
 
@@ -100,7 +100,7 @@ Usuwa pierwszy węzeł o wartości value z listy.
 	•	head - Wskaźnik do głowy listy.
 	•	value - Wartość double węzła do usunięcia.
 
-void list_pop(node* head)
+### void list_pop(node* head)
 
 Usuwa ostatni węzeł z listy.
 
@@ -118,7 +118,7 @@ Biblioteka hashtable implementuje strukturę danych typu tabela mieszająca (has
 
 ## Funkcje
 
-unsigned int hash(int key, int table_size)
+### unsigned int hash(int key, int table_size)
 
 Funkcja mieszająca generująca indeks na podstawie klucza key i rozmiaru tablicy table_size.
 
@@ -127,7 +127,7 @@ Funkcja mieszająca generująca indeks na podstawie klucza key i rozmiaru tablic
 	•	table_size - Rozmiar tablicy haszującej.
 	•	Zwraca: indeks unsigned int.
 
-HT* ht_init(int size)
+### HT* ht_init(int size)
 
 Inicjalizuje nową tabelę mieszającą o podanym rozmiarze size.
 
@@ -135,7 +135,7 @@ Inicjalizuje nową tabelę mieszającą o podanym rozmiarze size.
 	•	size - Rozmiar tablicy haszującej.
 	•	Zwraca: wskaźnik do nowo utworzonej tabeli haszującej (HT*).
 
-void ht_insert(HT* ht, int key, int value)
+### void ht_insert(HT* ht, int key, int value)
 
 Wstawia parę klucz-wartość do tabeli haszującej.
 
@@ -144,14 +144,14 @@ Wstawia parę klucz-wartość do tabeli haszującej.
 	•	key - Klucz całkowity.
 	•	value - Wartość całkowita.
 
-void ht_print(HT* ht)
+### void ht_print(HT* ht)
 
 Wypisuje zawartość tabeli haszującej.
 
 	•	Parametry:
 	•	ht - Wskaźnik do tabeli haszującej.
 
-void ht_insert_arr(HT* ht, int* arr, int size)
+### void ht_insert_arr(HT* ht, int* arr, int size)
 
 Wstawia wiele kluczy z tablicy arr do tabeli haszującej.
 
@@ -160,7 +160,7 @@ Wstawia wiele kluczy z tablicy arr do tabeli haszującej.
 	•	arr - Tablica kluczy.
 	•	size - Rozmiar tablicy arr.
 
-int ht_lookup(HT* ht, int key)
+### int ht_lookup(HT* ht, int key)
 
 Wyszukuje wartość na podstawie klucza key w tabeli haszującej.
 
@@ -169,7 +169,7 @@ Wyszukuje wartość na podstawie klucza key w tabeli haszującej.
 	•	key - Klucz całkowity.
 	•	Zwraca: wartość powiązaną z key, lub -1, jeśli klucz nie istnieje.
 
-void ht_free(HT* ht)
+### void ht_free(HT* ht)
 
 Zwalnia pamięć przydzieloną dla tabeli haszującej.
 
@@ -183,7 +183,7 @@ Biblioteka binary tree implementuje strukturę danych drzewa binarnego w języku
 
 ## Funkcje
 
-node* bt_make_node(double value)
+### node* bt_make_node(double value)
 
 Tworzy nowy węzeł drzewa binarnego z początkową wartością.
 
@@ -191,7 +191,7 @@ Tworzy nowy węzeł drzewa binarnego z początkową wartością.
 	•	value - Wartość double, którą ma przechowywać nowy węzeł.
 	•	Zwraca: wskaźnik do utworzonego węzła drzewa.
 
-void bt_insert(node* root, double value)
+### void bt_insert(node* root, double value)
 
 Wstawia nowy węzeł o wartości value do drzewa binarnego, zachowując jego strukturę.
 
@@ -199,7 +199,7 @@ Wstawia nowy węzeł o wartości value do drzewa binarnego, zachowując jego str
 	•	root - Wskaźnik do korzenia drzewa.
 	•	value - Wartość double, którą należy wstawić.
 
-void bt_print(node* root, int level, int indent_space)
+### void bt_print(node* root, int level, int indent_space)
 
 Wypisuje zawartość drzewa binarnego w formie wizualnej, pokazując hierarchię drzewa na podstawie poziomu (level) i odstępów (indent_space).
 
@@ -208,7 +208,7 @@ Wypisuje zawartość drzewa binarnego w formie wizualnej, pokazując hierarchię
 	•	level - Poziom początkowy, od którego rozpoczyna się drukowanie (ustaw na 0 dla korzenia).
 	•	indent_space - Liczba spacji używanych do wcięć między poziomami.
 
-node* bt_insert_array(double* arr, int size)
+### node* bt_insert_array(double* arr, int size)
 
 Tworzy drzewo binarne na podstawie wartości przechowywanych w tablicy arr.
 
@@ -217,7 +217,7 @@ Tworzy drzewo binarne na podstawie wartości przechowywanych w tablicy arr.
 	•	size - Rozmiar tablicy arr.
 	•	Zwraca: wskaźnik do korzenia drzewa binarnego utworzonego na podstawie tablicy.
 
-bool bt_search(node* root, double value)
+### bool bt_search(node* root, double value)
 
 Przeszukuje drzewo binarne w poszukiwaniu wartości value.
 
