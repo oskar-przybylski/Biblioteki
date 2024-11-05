@@ -7,7 +7,7 @@
 node* make_head(double value) {
     node* result = (node*)malloc(sizeof(node));
     if(result == NULL) {
-        fprintf(stderr,"ERROR: Nie udało się przypisać pamięci dla nowego węzła! \n");
+        fprintf(stderr,"\033[1;31mLIB ERROR: Nie udało się przypisać pamięci dla nowego węzła!\033[0m\n");
         return NULL;
     }
     result->value = value;
@@ -18,8 +18,19 @@ node* make_head(double value) {
 // tworzy nowy węzeł po podanym węźle, gorsza wersja append'a
 node* make_next_node(node* initial_last_node, double new_node_value) {
     node* new_node = make_head(new_node_value);
-    initial_last_node->next_node = new_node;
-    return new_node;
+    if(initial_last_node!=NULL){
+        if(initial_last_node->next_node==NULL) {
+            initial_last_node->next_node = new_node;
+            return new_node;
+        }else {
+            fprintf(stderr,"\033[1;31mLIB ERROR: Podany węzeł nie jest ostatni!\033[0m\n");
+            return NULL;
+        }
+    }else{
+        fprintf(stderr,"\033[1;31mLIB ERROR: Podany węzeł jest pusty!\033[0m\n");
+        return NULL;
+    }
+
 }
 
 // dodaje nowy węzeł na koniec listy
@@ -39,7 +50,7 @@ node* insert_node(node* node_before, double new_node_value, node* node_after) {
     node_before->next_node = new_node;
     new_node->next_node = node_after;
     if(new_node == NULL) {
-        fprintf(stderr,"ERROR: Nie udało się wstawić nowego węzła! \n");
+        fprintf(stderr,"\033[1;31mLIB ERROR: Nie udało się wstawić nowego węzła!\033[0m\n");
         return NULL;
     }
     return new_node;
@@ -83,7 +94,7 @@ node* append_after_value(node* head,double value_before, double new_value) {
     }else if(head->value!=value_before && head->next_node!=NULL){
         append_after_value(head->next_node,value_before,new_value);
     }else {
-        fprintf(stderr,"ERROR: Nie udało się wstawić nowego węzła! \n");
+        fprintf(stderr,"\033[1;31mLIB ERROR: Nie udało się wstawić nowego węzła!\033[0m\n");
         return NULL;
     }
     return NULL;
@@ -125,34 +136,59 @@ node* reverse_list(node* head) {
     return node_before;
 }
 
-// zwalnia pamiec zajeta przez liste
+// Funkcja zwalniająca wszystkie węzły listy
 void free_list(node* head) {
-    node* temp;
-    while (head != NULL) {
-        temp = head;
-        head = head->next_node;
-        free(temp);
+    node* current = head;
+    node* nextNode;
+
+    while (current != NULL) {
+        nextNode = current->next_node; // Zapisz wskaźnik na następny węzeł
+        free(current);             // Zwalniamy bieżący węzeł
+        current = nextNode;        // Przechodzimy do następnego węzła
     }
 }
 
-//usuwa węzeł z konkretną wartoscią z listy
+/*//usuwa węzeł z konkretną wartoscią z listy
 void delete_value(node* head,double value){
-    if(head->next_node->value == value){
-        head->next_node = head->next_node->next_node;
-    }else if(head->next_node->next_node!=NULL){
-        delete_value(head->next_node,value);
+    if(list_length(head)==1) {
+        if(head->value == value) {
+            free_list(head);
+            return;
+        }
     }else {
-        fprintf(stderr,"ERROR: Nie udało się usunąć węzła z wartością: %lf\n",value);
-        return;
+        if(head->next_node->value == value){
+            head->next_node = head->next_node->next_node;
+        }else if(head->next_node->next_node!=NULL){
+            delete_value(head->next_node,value);
+        }else {
+            fprintf(stderr,"ERROR: Nie udało się usunąć węzła z wartością: %lf\n",value);
+            return;
+        }
+    }
+}*/
+
+void delete_value(node* head, double value) {
+    while(head->next_node) {
+        if(head->next_node->value==value) {
+            head->next_node = head->next_node->next_node;
+        }
+        head = head->next_node;
     }
 }
+
+
 
 //usuwa ostatni węzeł z listy
 void list_pop(node* head) {
-    if(head->next_node->next_node==NULL) {
-        head->next_node = NULL;
+    if(list_length(head)==1) {
+        free_list(head);
+        return;
     }else {
-        list_pop(head->next_node);
+        if(head->next_node->next_node==NULL) {
+            head->next_node = NULL;
+        }else {
+            list_pop(head->next_node);
+        }
     }
 }
 
