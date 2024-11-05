@@ -2,7 +2,7 @@
 
 ## Opis
 
-Biblioteka linked list implementuje podstawowe operacje na liście jednokierunkowej w języku C. Pozwala na dynamiczne dodawanie, usuwanie, przeszukiwanie oraz konwersję listy do tablicy i odwrotnie.
+Biblioteka linked list implementuje podstawowe operacje na liście jednokierunkowej w języku C. Pozwala na dynamiczne dodawanie, usuwanie oraz konwersję listy do tablicy i odwrotnie.
 
 ## Funkcje
 
