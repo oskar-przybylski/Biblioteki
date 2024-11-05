@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ht_lib.h"
+#include "ht_lib-linear-progression-collisions.h"
 //
 // Created by Oskar Przybylski on 04/11/2024.
 //
