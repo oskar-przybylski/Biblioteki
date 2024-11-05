@@ -122,32 +122,17 @@ int ht_lookup(HT* ht, int key) {
 }
 
 // Zwalnianie pamięci zajętej przez tablicę hash
-/*void ht_free(HT* ht) {
-
-}*/
-
-// Funkcja rozwiązująca problem "Two Sum" przy użyciu tablicy hash
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
-    HT* ht = ht_init(numsSize); // Inicjalizacja tablicy hash
-    ht_insert_arr(ht, nums, numsSize); // Wstawienie elementów z `nums` do tablicy hash
-    int* ans = (int*)malloc(2 * sizeof(int)); // Alokacja pamięci dla odpowiedzi
-    for(int i = 0; i < numsSize; i++) {
-        int comp = target - nums[i]; // Obliczenie komplementu, którego szukamy
-        int index = ht_lookup(ht, comp); // Sprawdzenie, czy komplement istnieje
-        //printf("nums[%d]=%d comp=%d lookup=%d hash(comp) = %d / %d\n",i,nums[i],comp,ht_lookup(ht,comp),hash(comp,ht->size),ht->size);
-        if(index != -1 && index != i) { // Sprawdzenie, czy znaleziono komplement
-            ans[0] = i;
-            ans[1] = index;
-            *returnSize = 2;
-            ht_free(ht); // Zwolnienie tablicy hash
-            return ans;  // Zwrócenie indeksów
+void ht_free(HT* ht) {
+    for (int i = 0; i < ht->size; i++) {
+        element* current_element = ht->table[i];
+        while (current_element != NULL) {
+            element* temp = current_element;
+            current_element = current_element->next_in_bucket;
+            free(temp); // Zwolnienie każdego elementu listy
         }
     }
-
-    *returnSize = 0;  // Jeśli nie znaleziono wyników
-    free(ans);
-    ht_free(ht);
-    return NULL;
+    free(ht->table); // Zwolnienie tablicy wskaźników
+    free(ht);        // Zwolnienie struktury tablicy hash
 }
 
 
